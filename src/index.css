@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --color-ink: #0c0b0a;
+  --color-gold: #c6a35a;
+  --color-gold-light: #d4b56a;
+  --color-cream: #f3f0e8;
+  --color-muted: #c9c4ba;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #0c0b0a;
+  color: #f3f0e8;
+}
+
+.hero-photo {
+  object-position: 72% 68%;
+  transform: scale(1.2);
+  transform-origin: 70% 64%;
+  transition:
+    object-position 700ms ease,
+    transform 700ms ease;
+}
+
+.hero-photo[data-slide="1"] {
+  object-position: 80% 62%;
+  transform: scale(1.26);
+}
+
+.hero-photo[data-slide="2"] {
+  object-position: 64% 74%;
+  transform: scale(1.16);
+}
+
+@media (min-width: 768px) {
+  .hero-photo {
+    object-position: 68% 46%;
+    transform: scale(1.05);
+    transform-origin: 75% 50%;
+  }
+
+  .hero-photo[data-slide="1"] {
+    object-position: 76% 40%;
+    transform: scale(1.1);
+  }
+
+  .hero-photo[data-slide="2"] {
+    object-position: 60% 52%;
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-photo,
+  .hero-photo[data-slide="1"],
+  .hero-photo[data-slide="2"] {
+    object-position: 72% 68%;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: reduce) {
+  .hero-photo,
+  .hero-photo[data-slide="1"],
+  .hero-photo[data-slide="2"] {
+    object-position: 68% 46%;
+  }
+}
